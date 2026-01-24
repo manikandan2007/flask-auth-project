@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styling.css') }}">
+</head>
+<body>
+    <center>
+    <h2>Register for free !!!</h2>
+    <hr>
+    <h3>Register👤</h3>
+    <form method="post">
+        <input name="u" placeholder="Username" required><br><br>
+        <input name="p" type="password" placeholder="Password" required><br><br>
+        <button>Register</button>
+    </form>
+    <a href="/login">Go to Login</a>
+    </center>
+</body>
+</html>
