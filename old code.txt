@@ -1,5 +1,4 @@
 from flask import Flask, request, redirect, session, render_template, flash
-from crypto import encrypt_text, decrypt_text, hash_text
 import hashlib
 app = Flask(__name__)
 app.secret_key = "key"
@@ -30,7 +29,7 @@ def login():
                     session["u"] = u
                     return redirect("/home")
 
-        flash("Wrong login credentials !! try again.")
+        flash("Wrong login credentials. Please try again.")
         return redirect("/login")
 
     return render_template("login.html")
@@ -48,7 +47,7 @@ def encrypt():
     result = ""
     if request.method == "POST":
         text = request.form["text"]
-        result = encrypt_text(text)
+        result = simple_encrypt(text)
     return render_template("encrypt.html", result=result)
 
 
@@ -57,29 +56,22 @@ def decrypt():
     result = ""
     if request.method == "POST":
         text = request.form["text"]
-        result = decrypt_text(text)
+        result = simple_decrypt(text)
     return render_template("decrypt.html", result=result)
 
 
-@app.route("/hash", methods=["GET", "POST"])
-def hashing():
+@app.route("/hashing", methods=["GET", "POST"])
+def hash():
     result = ""
     if request.method == "POST":
         text = request.form["text"]
-        result = hash_text(text)
-    return render_template("hashing.html", result=result)
-
-
+        result = simple_hash(text)
+    return render_template("hash.html", result=result)
 
 @app.route("/logout")
 def logout():
     session.pop("u", None)
     return redirect("/login")
-
-
-@app.route("/about")
-def about():
-    return render_template("about.html")
 
 
 if __name__ == "__main__":

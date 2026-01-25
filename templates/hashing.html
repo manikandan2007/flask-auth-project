@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hashing - Crypto App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styling.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🔒 Text Hashing</h1>
+        <p style="text-align: center; margin-bottom: 30px;">Enter the text you want to hash:</p>
+
+        <form method="post">
+            <input name="text" placeholder="Enter text to hash" required>
+            <button type="submit">Hash</button>
+        </form>
+
+        {% if result %}
+        <div class="result-box">
+            <h3>🔒 This is the hash of your text:</h3>
+            <p style="font-size: 18px; font-weight: bold; word-break: break-all;">{{ result }}</p>
+        </div>
+        {% endif %}
+
+        <div class="warning">
+            ⚠️ <strong>Important:</strong> Hashed text cannot be retrieved or decrypted. Hashing is a one-way process used for security purposes like password storage.
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="/home">🏠 Back to Home</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>This project was created by Manikandan Ramesh</p>
+    </div>
+</body>
+</html>

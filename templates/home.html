@@ -1,16 +1,41 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Home</title>
+    <title>SecureX -- Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='styling.css') }}">
 </head>
 <body>
-    <center>
-    <h2>Our Workspace</h2>
-    <hr>
-    <h3>Welcome {{ username }}👤</h3>
-    <a href="/logout">Logout</a>
-    </center>
+    <div class="container">
+        <h1>Welcome to SecureX</h1>
+        <p style="text-align: center; margin-bottom: 40px;">Use our service now..</p>
+
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <form action="/encrypt" method="get">
+                <button type="submit">🔐 Encrypt your data</button>
+            </form>
+
+            <form action="/decrypt" method="get">
+                <button type="submit">🔓 Decrypt your ciphers</button>
+            </form>
+
+            <form action="/hash" method="get">
+                <button type="submit">🔒 Hashing</button>
+            </form>
+        </div>
+
+        <div style="text-align: center; margin: 20px 0;">
+            <a href="/about" style="font-size: 18px;">About the creator</a>
+        </div>
+
+        <br>
+        <div style="text-align: center;">
+            <a href="/logout">🚪 Logout</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>This project was created by Manikandan Ramesh</p>
+    </div>
 </body>
 </html>
